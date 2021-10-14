@@ -31,7 +31,6 @@ class App()
             puts "Invalid option"
             return
         end
-
         puts "Age: "
         age = gets.chomp.to_i
         puts "Name: "
@@ -48,6 +47,14 @@ class App()
         end
         @people.push(person)
         puts "Person created successfully"
+    end
+    def create_book
+        puts "Title"
+        title = gets.chomp 
+        puts "Author"
+        author = gets.chomp
+        Book.new(title, author)
+        puts "Book created successfully"
     end
 end
 
