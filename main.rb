@@ -71,6 +71,14 @@ class App()
         @rentals << Rental.new(date, @books[book_index], @people[person_index])
         puts "Rental created successfully"
     end
+    def list_rentals_for_person_id
+
+        puts "ID of person: "
+        id = gets.chomp.to_i
+        @people[id].rentals.each do |rental|
+            puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author} \n"
+        end    
+    end
 end
 
 def main
