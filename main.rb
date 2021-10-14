@@ -15,6 +15,40 @@ class App()
             puts `#{person. is_a?(Student) ? '[Student]' : '[Teacher]'} Name: "#{person.name}", Id: #{person.id}, Age: #{person.age} \n`
         end
     end
+    def list_people
+        @people.map |person| do
+            prefix = person. is_a?(Student) ? '[Student]' : '[Teacher]'
+            puts `#{prefix} Name: "#{person.name}", Id: #{person.id}, Age: #{person.age} \n`
+        end
+    end
+
+    def create_person
+
+        puts "Do you want to create a student (1) or a teacher (2)? [Input the number]: \n"
+        person_type = gets.chomp
+
+        if person_type != "1" && person_type != "2"
+            puts "Invalid option"
+            return
+        end
+
+        puts "Age: "
+        age = gets.chomp.to_i
+        puts "Name: "
+        name = gets.chomp
+        if person_type === "1" 
+            puts "Has parent permission? [Y/N]: " 
+            parent_permission = gets.chomp
+            parent_permission = parent_permission.downcase == "y"
+            person = Student.new(age, parent_permission, name)
+        elseif person_type === "2" 
+            puts "Specilization: "
+            specialization = gets.chomp
+            person = Teacher.new(age, specialization, name) 
+        end
+        @people.push(person)
+        puts "Person created successfully"
+    end
 end
 
 def main
