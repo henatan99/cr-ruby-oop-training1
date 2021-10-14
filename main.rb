@@ -5,6 +5,11 @@ class App()
         @people = []
         @rentals = []    
     end
+    def list_books
+        @books.map |book| do
+            puts `Title: "#{book.title}", Author: #{book.author} \n`
+        end
+    end
 end
 
 def main
