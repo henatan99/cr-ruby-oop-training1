@@ -56,6 +56,21 @@ class App()
         Book.new(title, author)
         puts "Book created successfully"
     end
+    def create_rental
+        puts "Select a book from the following list by number \n"
+        @books.each_with_index |book, index| do
+            puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+        end
+        id = gets.chomp.to_i 
+        if id < 0 || id >= @books.length 
+            puts "Invalid option"
+            return
+        end
+        puts "\nDate"
+        date = gets.chomp 
+        @rentals << Rental.new(date, @books[book_index], @people[person_index])
+        puts "Rental created successfully"
+    end
 end
 
 def main
