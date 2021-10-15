@@ -5,6 +5,7 @@ require_relative './example_school_library_decorator/book'
 require_relative './example_school_library_decorator/person'
 require_relative './example_school_library_decorator/student'
 require_relative './example_school_library_decorator/teacher'
+require_relative './example_school_library_decorator/rental'
 
 class App
   def initialize()
@@ -68,7 +69,7 @@ class App
     @people.each_with_index do |person, index|
       puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
-    person_index = gets.chomp
+    person_index = gets.chomp.to_i
 
     puts "\nDate"
     date = gets.chomp
